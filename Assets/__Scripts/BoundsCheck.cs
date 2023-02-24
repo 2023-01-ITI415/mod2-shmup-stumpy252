@@ -12,8 +12,10 @@ public class BoundsCheck : MonoBehaviour{
     [Header("Inscribed")]
     public eType boundsType = eType.center;
     public float radius = 1f;
+    public bool keepOnScreen = true;
 
     [Header("Dynamic")]
+    public bool isOnScreen = true;
     public float camWidth;
     public float camHeight;
     
@@ -29,20 +31,29 @@ public class BoundsCheck : MonoBehaviour{
         if(boundsType == eType.outset) checkRadius = radius;
 
         Vector3 pos = transform.position;
+        isOnScreen = true;
 
         if(pos.x > camWidth + checkRadius){
             pos.x = camWidth + checkRadius;
+            isOnScreen = false;
         }
         if(pos.x < -camWidth - checkRadius){
             pos.x = -camWidth - checkRadius;
+            isOnScreen = false;
         }
         if(pos.y > camHeight + checkRadius){
             pos.y = camHeight + checkRadius;
+            isOnScreen = false;
         }
         if(pos.y < -camHeight - checkRadius){
             pos.y = -camHeight - checkRadius;
+            isOnScreen = false;
         }
-        transform.position = pos;
+        if(keepOnScreen && !isOnScreen){
+            transform.position = pos;
+            isOnScreen = true;
+        }
+        
        
         
 
