@@ -11,9 +11,7 @@ public class Enemy : MonoBehaviour
     public int score = 100; // points earned
     private BoundsCheck bndCheck;
 
-    void Awake(){
-        bndCheck = GetComponent<BoundsCheck>();
-    }
+    
 
     // A property: method that acts like a field
     public Vector3 pos{
@@ -23,6 +21,9 @@ public class Enemy : MonoBehaviour
         set{
             this.transform.position = value;
         }
+    }
+    void Awake(){
+        bndCheck = GetComponent<BoundsCheck>();
     }
     void Update(){
         Move();

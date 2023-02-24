@@ -47,7 +47,7 @@ public class Hero : MonoBehaviour
         //Debug.Log("Shield trigger hit by: " + go.gameObject.name);
 
         // Make sure it's not the same triggering go as last time
-        if(go = lastTriggerGo) return;
+        if(go == lastTriggerGo) return;
 
         lastTriggerGo = go;
 
@@ -70,9 +70,11 @@ public class Hero : MonoBehaviour
             //if shield will be less than 0
             if(value < 0){
                 Destroy(this.gameObject);
+                Main.HERO_DIED();
             }
         }
 
     }
+    
    
 }
