@@ -616,7 +616,7 @@ MonoBehaviour:
   pitchMult: 30
   projectilePrefab: {fileID: 7065950182082185964, guid: 382b17436e6704b43b83aa32848d884c, type: 3}
   projectileSpeed: 40
-  _shieldLevel: 1
+  _shieldLevel: 4
 --- !u!4 &2139729622
 Transform:
   m_ObjectHideFlags: 0
